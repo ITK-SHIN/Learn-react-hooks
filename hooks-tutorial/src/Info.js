@@ -1,11 +1,17 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 const Info = () => {
   const [name, setName] = useState("");
   const [nickname, setNickname] = useState("");
 
+  useEffect(() => {
+    console.log("effect");
+    return () => {
+      console.log("unmount");
+    };
+  }, []);
+
   const onChangeName = (e) => {
-    console.log(e);
     setName(e.target.value);
   };
 
